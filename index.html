@@ -18,9 +18,19 @@
             font-size: 50px;
             font-weight: 100;
             text-align: center; 
-            margin-bottom: 35px;
+            margin-bottom: 10px;
             word-wrap: break-word; 
         }
+
+        p.byline{
+            font: "Serif";
+            font-size: 25px;
+            font-weight: 700;
+            text-align: left;
+            margin-bottom: 40px;
+            word-wrap: break-word; 
+        }
+
 
         p.secondary{
             font: "Times New Roman";
@@ -28,13 +38,15 @@
             font-weight: 50;
             text-align: left; 
             margin-top:25px;
+            width: 85%;
+            height: 85%;
             word-wrap: break-word; 
 }
 
         #iframes {
             display: flex; /* Corrected from 'lex' to 'flex' */
-            width: 100%;
-            height: 100%;
+            width: 85%;
+            height: 85%;
             justify-content: space-around;
             margin-bottom: 10px; /* Added margin-bottom for spacing consistency */
         }
@@ -47,20 +59,31 @@
     </style>
 
     <body>
-
         <p class='main'> 
             A very detailed map on Trump's voter-share gain in New York City
         </p>        
-    
+
+        <p class="byline">
+            By <a href="https://kcinbk.github.io/"> Keenan Chen 
+            </a>
+        </p>
+
+        <p class="secondary"> 
+            Try searching for an address, zip code, or neighborhood name in the search bar at 
+            the upper right of the map, or hover over the map to view detailed data for 
+            a voting precinct.
+        </p>
+
         <div id="iframes">
             <iframe src="viz_folder/cartodb_nyc_2024_trump_gain.html"></iframe>
         </div>
-        <div>
-
-         <p class="secondary"> 
-            The source of this precinct-level data, including the official vote count from the 2020 general election 
-            and the unofficial count from 2024, is <a href="https://www.vote.nyc/">New York City's Board of Elections</a>. 
+        
+       
+        <p class="secondary"> 
+                The source of this precinct-level data, including the official vote count from the 2020 general election 
+                and the unofficial count from 2024, is <a href="https://www.vote.nyc/">New York City's Board of Elections</a>. 
         </p>
-         </div>
+
     </body>
 </html>
+ 
