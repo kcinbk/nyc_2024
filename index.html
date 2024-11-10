@@ -1,89 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin: 30px; /* Reduced margin */
-            background-color: #a3aee4;
-        }
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 30px;
+        background-color: #a3aee4;
+    }
 
-        p.main{
-            font: "Times New Roman";
-            font-size: 50px;
-            font-weight: 100;
-            text-align: center; 
-            margin-bottom: 10px;
-            word-wrap: break-word; 
-        }
+    p.main {
+        font-family: "Times New Roman";
+        font-size: 50px;
+        font-weight: 100;
+        text-align: center;
+        margin-bottom: 10px;
+        word-wrap: break-word;
+    }
 
-        p.byline{
-            font: "Serif";
-            font-size: 25px;
-            font-weight: 700;
-            text-align: left;
-            margin-bottom: 40px;
-            word-wrap: break-word; 
-        }
+    p.byline {
+        font-family: "Serif";
+        font-size: 25px;
+        font-weight: 700;
+        text-align: left;
+        margin-bottom: 40px;
+        word-wrap: break-word;
+    }
+
+    p.secondary {
+        font-family: "Times New Roman";
+        font-size: 25px;
+        font-weight: 50;
+        text-align: left;
+        margin-top: 25px;
+        width: 85%;
+        word-wrap: break-word;
+    }
+
+    #mapContainer {
+        display: flex;
+        width: 85%;
+        height: 85%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    iframe {
+        width: 100%;
+        height: 80vh;
+        border: none;
+    }
+
+    #buttonContainer {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        background-color: #0044cc;
+        color: white;
+    }
+
+    button:hover {
+        background-color: #003399;
+    }
+</style>
+
+<body>
+    <p class='main'>
+        Very detailed maps on Trump's gain in New York City
+    </p>
+
+    <p class="byline">
+        By <a href="https://kcinbk.github.io/">Keenan Chen</a>
+    </p>
 
 
-        p.secondary{
-            font: "Times New Roman";
-            font-size: 25px;
-            font-weight: 50;
-            text-align: left; 
-            margin-top:25px;
-            width: 85%;
-            height: 85%;
-            word-wrap: break-word; 
-}
+    <p class="secondary">
+        President-elect Donald Trump gained substantially more support in New York City in the 2024 general election. 
+        Compared to his 2020 race, he improved by adding more than 94,000 votes in over 75 percent of the voting 
+        precinct across the five boroughs.
+    </p> 
 
-        #iframes {
-            display: flex; /* Corrected from 'lex' to 'flex' */
-            width: 85%;
-            height: 85%;
-            justify-content: space-around;
-            margin-bottom: 10px; /* Added margin-bottom for spacing consistency */
-        }
+    <p class="secondary">
+        Try searching for an address, zip code, or neighborhood name in the search bar at
+        the upper right of the map, or hover over the map to view detailed data for
+        a voting precinct.
+    </p>
 
-        iframe {
-            width: 100%; /* Adjusted for better layout */
-            height: 80vh; /* Adjusted height */
-            border: none; /* Removed border for cleaner look */
-        }
-    </style>
+    <!-- Button Container -->
+    <div id="buttonContainer">
+        <button onclick="showMap('map1')"> Share of votes</button>
+        <button onclick="showMap('map2')"> Number of votes</button>
+    </div>
 
-    <body>
-        <p class='main'> 
-            A very detailed map on Trump's voter-share gain in New York City
-        </p>        
-
-        <p class="byline">
-            By <a href="https://kcinbk.github.io/"> Keenan Chen 
-            </a>
-        </p>
-
-        <p class="secondary"> 
-            Try searching for an address, zip code, or neighborhood name in the search bar at 
-            the upper right of the map, or hover over the map to view detailed data for 
-            a voting precinct.
-        </p>
-
-        <div id="iframes">
-            <iframe src="viz_folder/cartodb_nyc_2024_trump_20241108.html"></iframe>
-        </div>
+    <!-- Map Container -->
+    <div id="mapContainer">
+        <!-- First Map -->
+        <iframe id="map1" src="viz_folder/cartodb_nyc_2024_trump_20241108.html"></iframe>
         
-       
-        <p class="secondary"> 
-                The source of this precinct-level data, including the official vote count from the 2020 general election 
-                and the unofficial count from 2024, is <a href="https://www.vote.nyc/">New York City's Board of Elections</a>. 
-        </p>
+        <!-- Second Map (hidden) -->
+        <iframe id="map2" src="viz_folder/cartodb_nyc_2024_trump_vote_gain_absolute.html" style="display: none;"></iframe>
+    </div>
 
-    </body>
+    <p class="secondary">
+        The source of this precinct-level data, including the official vote count from the 2020 general election
+        and the unofficial count from 2024, is <a href="https://www.vote.nyc/">New York City's Board of Elections</a>.
+    </p>
+
+    <script>
+        function showMap(mapId) {
+            // Hide both maps initially
+            document.getElementById('map1').style.display = 'none';
+            document.getElementById('map2').style.display = 'none';
+
+            // Show the selected map
+            document.getElementById(mapId).style.display = 'block';
+        }
+    </script>
+</body>
 </html>
- 
