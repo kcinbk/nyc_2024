@@ -1,0 +1,20 @@
+{
+    "release": {
+        "id": "acs2022_5yr",
+        "name": "ACS 2022 5-year",
+        "years": "2018-2022"
+    },
+    "tables": {
+        "B19013": {
+            "columns": {
+                "B19013001": {
+                    "indent": 0,
+                    "name": "Median household income in the past 12 months (in 2022 inflation-adjusted dollars)"
+                }
+            },
+            "denominator_column_id": null,
+            "title": "Median Household Income in the Past 12 Months (In 2022 Inflation-adjusted Dollars)",
+            "universe": "Households"
+        }
+    }
+}
