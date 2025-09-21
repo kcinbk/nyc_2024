@@ -3,79 +3,105 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-    body {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 30px;
-        background-color: #a3aee4;
-    }
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cash Jordan Slate Magazine visualization landing page </title>
 
-    p.main {
-        font-family: "Times New Roman";
-        font-size: 50px;
-        font-weight: 100;
-        text-align: center;
-        margin-bottom: 10px;
-        word-wrap: break-word;
-    }
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 30px;
+            background-color: #F2DFCE;
+        }
 
-    p.byline {
-        font-family: "Serif";
-        font-size: 25px;
-        font-weight: 700;
-        text-align: left;
-        margin-bottom: 40px;
-        word-wrap: break-word;
-    }
+        p.main {
+            font-family: "Times New Roman";
+            font-size: 35px;
+            font-weight: 100;
+            text-align: center;
+            margin-bottom: 10px;
+            word-wrap: break-word;
+        }
 
-    p.secondary {
-        font-family: "Times New Roman";
-        font-size: 25px;
-        font-weight: 50;
-        text-align: left;
-        margin-top: 25px;
-        width: 85%;
-        word-wrap: break-word;
-    }
+        p.byline {
+            font-family: "Serif";
+            font-size: 25px;
+            font-weight: 700;
+            text-align: left;
+            margin-bottom: 40px;
+            word-wrap: break-word;
+        }
 
-    #mapContainer {
-        display: flex;
-        width: 85%;
-        height: 85%;
-        justify-content: center;
-        margin-bottom: 10px;
-    }
+        p.secondary {
+            font-family: "Times New Roman";
+            font-size: 25px;
+            font-weight: 50;
+            text-align: left;
+            margin-top: 25px;
+            width: 85%;
+            word-wrap: break-word;
+        }
 
-    iframe {
-        width: 100%;
-        height: 80vh;
-        border: none;
-    }
+        p.citation {
+            font-family: "Times New Roman";
+            font-size: 15px;
+            font-weight: 50;
+            text-align: right;
+            margin-top: 25px;
+            width: 85%;
+            word-wrap: break-word;
+        }
 
-    #buttonContainer {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin-bottom: 20px;
-    }
+        #mapContainer {
+            display: flex;
+            width: 85%;
+            height: 85%;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
 
-    button {
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-        border: none;
-        border-radius: 5px;
-        background-color: #0044cc;
-        color: white;
-    }
+        iframe {
+            width: 100%;
+            height: 80vh;
+            border: none;
+        }
 
-    button:hover {
-        background-color: #003399;
-    }
-</style>
+        #buttonContainer {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #0044cc;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #003399;
+        }
+    </style>
+    <link href="scrolly-styles.css" rel="stylesheet">
+  <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollama/3.2.0/scrollama.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js"></script>
+</head>
 
 <body>
     <p class='main'>
@@ -94,9 +120,8 @@
     </p> 
 
     <p class="secondary">
-        These two interactive maps illustrate Trump's increase in vote share and total number of votes across. Try search for an address, zip code, or neighborhood name in 
-        the search bar at the upper right of the map, or hover over the map to view detailed data for
-        a voting precinct.
+        To look up precinct-level result, try hover over a specicific area on the map, or type in an address, 
+        a zip code, or a neighborhood name in the search bar located on the upper right of the map.
     </p>
 
     <!-- Button Container -->
@@ -114,9 +139,10 @@
         <iframe id="map2" src="viz_folder/cartodb_nyc_2024_trump_vote_gain_absolute.html" style="display: none;"></iframe>
     </div>
 
-    <p class="secondary">
-        The precinct-level data, including the official vote count from the 2020 general election
-        and the unofficial 2024 count, is <a href="https://www.vote.nyc/">New York City's Board of Elections</a>.
+    <p class="citation">
+        Data from <a href="https://www.vote.nyc/">New York City's Board of Elections</a> and 
+        <a href="https://www.census.gov/topics/public-sector/voting/data/data-tools.html"> 
+        US Census Bureau</a>
     </p>
 
     <script>
